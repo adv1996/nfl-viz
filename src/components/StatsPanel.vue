@@ -1,7 +1,7 @@
 <template>
   <div class="justify-center bg-white border-t-2 border-red-200">
     <div class="flex flex-row justify-center">
-      <div class="flex-1 m-2 text-xl md:text-4xl capitalize"> {{ name }} (2019)</div>
+      <div class="flex-1 m-2 text-xl md:text-4xl capitalize"> {{ playerName }} (2019)</div>
     </div>
     <div class="flex flex-row justify-center m-2 px-4 pb-4">
       <div class="flex-1 px-4 text-xl md:text-3xl font-semibold">{{ yards | formatComma}} <span class="text-xs md:text-sm font-light upper">yds</span></div>
@@ -31,6 +31,14 @@
         attempts: 0,
         name: 0,
       }
+    },
+    watch : {
+      playerName: {
+        handler: function() {
+            this.setData();
+        },
+        immediate: true,
+      },
     },
     mounted () {
       this.setData();

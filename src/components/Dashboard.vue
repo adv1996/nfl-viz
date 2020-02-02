@@ -6,13 +6,13 @@
     <div>
       <div class="m-1 px-1 py-2 text-center flex flex-col md:flex-row shadow-lg">
         <div class="flex-1 px-2 py-1">
-          <v-select @input="setSelected" class="text-xs" :value="active_field" placeholder="Fields" label="field" :options="controlOptions"></v-select>
+          <v-select @input="setSelected" class="dropdownText" :value="active_field" placeholder="Fields" label="field" :options="controlOptions"></v-select>
         </div>
         <div class="flex-1 px-2 py-1">
-          <v-select class="text-xs capitalize" @input="setSelectedPlayerOne" :value="active_player_one" placeholder="Player 1" label="displayName" :options="playerList"></v-select>
+          <v-select class="dropdownText capitalize" @input="setSelectedPlayerOne" :value="active_player_one" placeholder="Player 1" label="displayName" :options="playerList"></v-select>
         </div>
         <div class="flex-1 px-2 py-1">
-          <v-select class="text-xs capitalize" @input="setSelectedPlayerTwo" :value="active_player_two" placeholder="Player 2" label="displayName" :options="playerList"></v-select>
+          <v-select class="dropdownText capitalize" @input="setSelectedPlayerTwo" :value="active_player_two" placeholder="Player 2" label="displayName" :options="playerList"></v-select>
         </div>
       </div>
     </div>
@@ -137,5 +137,8 @@ export default {
 }
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+.dropdownText {
+  font-size: 16px;
 }
 </style>

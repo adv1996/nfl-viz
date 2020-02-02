@@ -16,6 +16,7 @@ export default {
   name: 'Heatmap',
   data() {
     return {
+      playerNameStats: '',
       height: 0,
       width: 0,
       imageBuff: 60,
@@ -120,8 +121,12 @@ export default {
     width: function widthChanged() {
       this.initGraph();
     },
-    playerName: function playerChanged(newValue) {
-      this.initGraph();
+    playerName: {
+      handler: function playerChanged(newValue) {
+        console.log(newValue)
+        this.initGraph();
+      },
+      immediate: true
     },
     extent: function extentChanged(newValue) {
       this.initScale();
