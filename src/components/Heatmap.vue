@@ -123,7 +123,6 @@ export default {
     },
     playerName: {
       handler: function playerChanged(newValue) {
-        console.log(newValue)
         this.initGraph();
       },
       immediate: true

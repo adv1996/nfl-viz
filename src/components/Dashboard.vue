@@ -99,15 +99,19 @@ export default {
         this.active_field = value
         this.extent = [Players['aggregrate']['min'][value.field], Players['aggregrate']['max'][value.field]]
         if (value.extent) {
-          this.extent = control.extent
+          this.extent = value.extent
         }
       }
     },
     setSelectedPlayerOne(value) {
-      this.active_player_one = value
+      if (value) {
+        this.active_player_one = value
+      }
     },
     setSelectedPlayerTwo(value) {
-      this.active_player_two = value
+      if (value) {
+        this.active_player_two = value
+      }
     },
     setPlayers() {
       let playerKeys = Object.keys(Players['players'])
