@@ -25,6 +25,21 @@
         <heat-map player_id="player2" :playerName="active_player_two.key" :extent="extent" :field="active_field.field"/>
       </div>
     </div>
+    <div class="flex justify-center px-1 py-2 bg-gray-300">
+      <div class="text-gray-700 text-center m-1">
+        <button class="bg-blue-100 px-2 link">
+          <a class="text-blue-400" href="https://github.com/adv1996/nfl-viz">Code</a>
+        </button>
+      </div>
+      <div class="text-gray-700 text-center m-1">
+        <button class="bg-blue-100 px-2">
+          <a class="text-blue-400 link" href="https://www.advaithv.com/">Developed by Advaith Venkatakrishnan</a>
+        </button>
+      </div>
+    </div>
+    <div class="text-xs text-gray-700 bg-gray-300 text-center mb-2">
+      - Data from QB Passing Splits on ESPN in 2019 Regular Season
+    </div>
   </div>
 </template>
 
@@ -68,10 +83,9 @@ export default {
           field: "RTG",
         }
       ],
-      extent: [0, 100],
+      extent: [50, 100],
       active_field: {
-        field: "CMP%",
-        extent: [0, 100]
+        field: "CMP%"
       },
       dropdownOpen: false,
       playerList: [],
@@ -91,25 +105,34 @@ export default {
     };
   },
   mounted () {
+    this.setExtent(this.active_field)
     this.setPlayers();
   },
   methods: {
     setSelected(value) {
       if (value) {
         this.active_field = value
-        this.extent = [Players['aggregrate']['min'][value.field], Players['aggregrate']['max'][value.field]]
-        if (value.extent) {
-          this.extent = value.extent
-        }
+        this.setExtent(value)
+        // this.extent = [Players['aggregrate']['min'][value.field], Players['aggregrate']['max'][value.field]]
+        // if (value.extent) {
+        //   this.extent = value.extent
+        // }
       }
+    },
+    setExtent(value) {
+      let min = [Players['players'][this.active_player_one.key]['min'][value.field], Players['players'][this.active_player_two.key]['min'][value.field]]
+      let max = [Players['players'][this.active_player_one.key]['max'][value.field], Players['players'][this.active_player_two.key]['max'][value.field]]
+      this.extent = [d3.min(min), d3.max(max)]
     },
     setSelectedPlayerOne(value) {
       if (value) {
+        this.setExtent(this.active_field)
         this.active_player_one = value
       }
     },
     setSelectedPlayerTwo(value) {
       if (value) {
+        this.setExtent(this.active_field)
         this.active_player_two = value
       }
     },
@@ -144,5 +167,8 @@ export default {
 }
 .dropdownText {
   font-size: 16px;
+}
+.link {
+  text-decoration: underline;
 }
 </style>
