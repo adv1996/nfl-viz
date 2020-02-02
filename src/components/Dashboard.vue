@@ -25,7 +25,7 @@
         <heat-map player_id="player2" :playerName="active_player_two.key" :extent="extent" :field="active_field.field"/>
       </div>
     </div>
-    <div class="flex justify-center px-1 py-2 bg-gray-300">
+    <div class="flex justify-center px-1 py-2 bg-gray-200">
       <div class="text-gray-700 text-center m-1">
         <button class="bg-blue-100 px-2 link">
           <a class="text-blue-400" href="https://github.com/adv1996/nfl-viz">Code</a>
@@ -37,7 +37,7 @@
         </button>
       </div>
     </div>
-    <div class="text-xs text-gray-700 bg-gray-300 text-center mb-2">
+    <div class="text-xs text-gray-700 bg-gray-200 text-center mb-2">
       - Data from QB Passing Splits on ESPN in 2019 Regular Season
     </div>
   </div>
