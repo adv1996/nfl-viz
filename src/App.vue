@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Dashboard from './components/Dashboard.vue'
+import Dashboard from './components/TeamDashboard.vue' // change to dashboard for player build
 
 export default {
   name: 'app',

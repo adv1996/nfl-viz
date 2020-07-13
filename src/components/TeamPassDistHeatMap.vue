@@ -1,7 +1,6 @@
 <template>
   <div>
-    <svg :id="player_id"/>
-    <stats-panel :playerName="playerName"/>
+    <svg id="team_id"/>
   </div>
 </template>
 
